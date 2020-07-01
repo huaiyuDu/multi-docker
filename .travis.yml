@@ -21,3 +21,16 @@ after_success:
   - docker push harrydu/multi-worker
   - docker push harrydu/multi-nginx
   - docker push harrydu/multi-server
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-112346008503"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KET
