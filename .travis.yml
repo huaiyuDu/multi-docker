@@ -15,7 +15,7 @@ after_success:
   - docker build -t harrydu/multi-nginx ./nginx
   - docker build -t harrydu/multi-server ./server
   #login to the docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password -s
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-s
 
   - docker push harrydu/multi-client
   - docker push harrydu/multi-worker
